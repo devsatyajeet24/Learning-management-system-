@@ -80,8 +80,8 @@ export default function StudentCourses() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading your dashboard...</p>
+          <div className="w-20 h-20 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600 animate-pulse text-lg">Loading your dashboard...</p>
         </div>
       </div>
     );
@@ -90,29 +90,29 @@ export default function StudentCourses() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
       {/* Navigation Header */}
-      <nav className="bg-white shadow-md sticky top-0 z-50">
+      <nav className="bg-white shadow-md sticky top-0 z-50 animate-fade-in-down">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">🎓</span>
+            <div className="flex items-center gap-3 group cursor-pointer hover:scale-105 smooth-transition" onClick={() => navigate('/')}>
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center group-hover:shadow-lg smooth-transition">
+                <span className="text-white font-bold text-lg animate-bounce-slow">🎓</span>
               </div>
               <h1 className="text-2xl font-bold text-gray-800">EduLearn</h1>
             </div>
             <div className="flex items-center gap-6">
               <div className="text-right">
                 <p className="text-sm text-gray-500">Welcome</p>
-                <p className="text-lg font-semibold text-gray-800">{state.user?.name}</p>
+                <p className="text-lg font-semibold text-gray-800 animate-fade-in">{state.user?.name}</p>
               </div>
               <button
                 onClick={handleHomePage}
-                className="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition"
+                className="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium smooth-transition hover:scale-110"
               >
                 Browse Courses
               </button>
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 font-medium transition"
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 font-medium smooth-transition hover:scale-110 hover:shadow-lg"
               >
                 Logout
               </button>
@@ -124,60 +124,60 @@ export default function StudentCourses() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Page Title */}
-        <div className="mb-8">
-          <h2 className="text-4xl font-bold text-gray-800 mb-2">My Learning Dashboard</h2>
-          <p className="text-gray-600">Track your progress and continue where you left off</p>
+        <div className="mb-8 animate-fade-in-up">
+          <h2 className="text-4xl font-bold text-gray-800 mb-2 animate-slide-in-left">📊 My Learning Dashboard</h2>
+          <p className="text-gray-600 animate-slide-in-left stagger-2">Track your progress and continue where you left off</p>
         </div>
 
         {/* Statistics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           {/* Total Courses */}
-          <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+          <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500 smooth-transition hover:shadow-xl hover:scale-105 hover:-translate-y-2 animate-fade-in-up cursor-pointer" style={{animationDelay: '0.1s'}}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm font-medium">Total Courses</p>
-                <p className="text-3xl font-bold text-gray-800 mt-2">{stats.totalCourses}</p>
+                <p className="text-3xl font-bold text-gray-800 mt-2 animate-pulse">{stats.totalCourses}</p>
               </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl animate-bounce-slow">
                 📚
               </div>
             </div>
           </div>
 
           {/* Completed Courses */}
-          <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-green-500">
+          <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-green-500 smooth-transition hover:shadow-xl hover:scale-105 hover:-translate-y-2 animate-fade-in-up cursor-pointer" style={{animationDelay: '0.2s'}}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm font-medium">Completed</p>
-                <p className="text-3xl font-bold text-gray-800 mt-2">{stats.completedCourses}</p>
+                <p className="text-3xl font-bold text-gray-800 mt-2 animate-pulse">{stats.completedCourses}</p>
               </div>
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl animate-bounce-slow" style={{animationDelay: '0.3s'}}>
                 ✅
               </div>
             </div>
           </div>
 
           {/* Average Progress */}
-          <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500">
+          <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500 smooth-transition hover:shadow-xl hover:scale-105 hover:-translate-y-2 animate-fade-in-up cursor-pointer" style={{animationDelay: '0.3s'}}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm font-medium">Avg Progress</p>
-                <p className="text-3xl font-bold text-gray-800 mt-2">{stats.averageProgress}%</p>
+                <p className="text-3xl font-bold text-gray-800 mt-2 animate-pulse">{stats.averageProgress}%</p>
               </div>
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-2xl">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-2xl animate-rotate-slow">
                 📈
               </div>
             </div>
           </div>
 
           {/* Lessons Completed */}
-          <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-500">
+          <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-500 smooth-transition hover:shadow-xl hover:scale-105 hover:-translate-y-2 animate-fade-in-up cursor-pointer" style={{animationDelay: '0.4s'}}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm font-medium">Lessons Done</p>
-                <p className="text-3xl font-bold text-gray-800 mt-2">{stats.totalLessonsCompleted}</p>
+                <p className="text-3xl font-bold text-gray-800 mt-2 animate-pulse">{stats.totalLessonsCompleted}</p>
               </div>
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center text-2xl">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center text-2xl animate-bounce-slow" style={{animationDelay: '0.5s'}}>
                 🎬
               </div>
             </div>
@@ -186,26 +186,26 @@ export default function StudentCourses() {
 
         {/* Enrolled Courses Section */}
         {enrollments.length > 0 ? (
-          <div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">My Subscribed Courses</h3>
+          <div className="animate-fade-in-up" style={{animationDelay: '0.5s'}}>
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 animate-slide-in-left">🎓 My Subscribed Courses</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {enrollments.map((enrollment) => (
+              {enrollments.map((enrollment, idx) => (
                 <div
                   key={enrollment._id}
-                  className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer group"
+                  className="bg-white rounded-xl shadow-md overflow-hidden smooth-transition-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-3 cursor-pointer group animate-fade-in-up transform"
+                  style={{animationDelay: `${idx * 0.05}s`}}
                 >
                   {/* Course Header */}
-                  <div className="h-40 bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 p-6 text-white relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-0 right-0 w-40 h-40 bg-white rounded-full -mr-20 -mt-20"></div>
-                    </div>
+                  <div className="h-40 bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 p-6 text-white relative overflow-hidden group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-indigo-700 smooth-transition">
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 bg-white smooth-transition"></div>
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-white rounded-full -mr-20 -mt-20 opacity-20 group-hover:opacity-30 smooth-transition"></div>
                     <div className="relative z-10">
                       <div className="flex justify-between items-start mb-2">
-                        <span className="px-3 py-1 bg-white bg-opacity-20 rounded-full text-xs font-semibold">
+                        <span className="px-3 py-1 bg-white bg-opacity-20 rounded-full text-xs font-semibold backdrop-blur">
                           {enrollment.course.category}
                         </span>
                         {enrollment.progress === 100 && (
-                          <span className="text-2xl">🏆</span>
+                          <span className="text-2xl animate-bounce">🏆</span>
                         )}
                       </div>
                       <h3 className="text-xl font-bold">{enrollment.course.title}</h3>
@@ -216,8 +216,8 @@ export default function StudentCourses() {
                   <div className="p-6">
                     {/* Instructor */}
                     {enrollment.course.instructor && (
-                      <p className="text-sm text-gray-500 mb-3">
-                        👨‍🏫 {enrollment.course.instructor.name}
+                      <p className="text-sm text-gray-500 mb-3 group-hover:text-blue-600 smooth-transition">
+                        <span className="animate-bounce-slow" style={{animationDelay: '0.2s'}}>👨‍🏫</span> {enrollment.course.instructor.name}
                       </p>
                     )}
 
@@ -242,11 +242,11 @@ export default function StudentCourses() {
                     <div className="mb-4">
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-xs font-semibold text-gray-700">Progress</span>
-                        <span className="text-xs font-bold text-blue-600">{enrollment.progress}%</span>
+                        <span className="text-xs font-bold text-blue-600 animate-pulse">{enrollment.progress}%</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
                         <div
-                          className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full transition-all duration-500"
+                          className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full smooth-transition-lg"
                           style={{ width: `${enrollment.progress}%` }}
                         ></div>
                       </div>
@@ -255,7 +255,7 @@ export default function StudentCourses() {
                     {/* Continue Learning Button */}
                     <button
                       onClick={() => handleViewCourse(enrollment.course._id)}
-                      className={`w-full py-2 px-4 rounded-lg font-semibold transition-all duration-300 ${
+                      className={`w-full py-2 px-4 rounded-lg font-semibold smooth-transition transform hover:scale-110 hover:shadow-lg ${
                         enrollment.progress === 100
                           ? 'bg-green-100 text-green-700 hover:bg-green-200'
                           : 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:from-blue-600 hover:to-indigo-700'
@@ -270,13 +270,13 @@ export default function StudentCourses() {
           </div>
         ) : (
           /* Empty State */
-          <div className="text-center py-16">
-            <div className="text-6xl mb-4">📚</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">No Courses Yet</h3>
-            <p className="text-gray-600 mb-8">You haven't subscribed to any courses yet.</p>
+          <div className="text-center py-16 animate-fade-in-up">
+            <div className="text-6xl mb-4 animate-bounce-slow">📚</div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-2 animate-slide-in-down">No Courses Yet</h3>
+            <p className="text-gray-600 mb-8 animate-fade-in">You haven't subscribed to any courses yet.</p>
             <button
               onClick={handleHomePage}
-              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-700 transition"
+              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-700 smooth-transition hover:scale-110 hover:shadow-lg transform"
             >
               Browse Courses
             </button>

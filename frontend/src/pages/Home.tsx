@@ -159,30 +159,32 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {loading ? (
           <div className="text-center py-12">
-            <div className="inline-block animate-spin">⏳</div>
-            <p className="text-gray-600 mt-2">Loading courses...</p>
+            <div className="inline-block animate-rotate-slow text-5xl">⏳</div>
+            <p className="text-gray-600 mt-4 animate-pulse">Loading amazing courses...</p>
           </div>
         ) : filteredCourses.length === 0 ? (
-          <div className="text-center py-12">
+          <div className="text-center py-12 animate-fade-in">
             <p className="text-2xl text-gray-600">No courses found</p>
             <p className="text-gray-500 mt-2">Try adjusting your search or filters</p>
           </div>
         ) : (
           <>
-            <h3 className="text-3xl font-bold text-gray-900 mb-8">
-              Available Courses ({filteredCourses.length})
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 animate-fade-in-up">
+              ✨ Available Courses ({filteredCourses.length})
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredCourses.map((course) => (
+              {filteredCourses.map((course, idx) => (
                 <div
                   key={course._id}
-                  className="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden group"
+                  className="bg-white rounded-xl shadow-md hover:shadow-2xl smooth-transition-lg overflow-hidden group cursor-pointer transform hover:scale-105 hover:-translate-y-2 animate-fade-in-up"
+                  style={{animationDelay: `${idx * 0.05}s`}}
                 >
                   {/* Course Header Image */}
-                  <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 p-6 text-white flex flex-col justify-end group-hover:from-blue-600 group-hover:to-indigo-700 transition">
-                    <h3 className="text-2xl font-bold mb-2">{course.title}</h3>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm bg-white bg-opacity-20 px-3 py-1 rounded-full">
+                  <div className="h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 p-6 text-white flex flex-col justify-end group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-indigo-700 smooth-transition relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 bg-white smooth-transition"></div>
+                    <h3 className="text-2xl font-bold mb-2 relative z-10">{course.title}</h3>
+                    <div className="flex justify-between items-center relative z-10">
+                      <span className="text-sm bg-white bg-opacity-20 px-3 py-1 rounded-full backdrop-blur">
                         {course.category}
                       </span>
                       <span className="text-sm">📚 {course.lessons.length} lessons</span>
@@ -195,8 +197,8 @@ export default function Home() {
 
                     {/* Instructor Info */}
                     {course.instructor && (
-                      <div className="flex items-center gap-2 mb-4 text-sm text-gray-500">
-                        <span>👨‍🏫</span>
+                      <div className="flex items-center gap-2 mb-4 text-sm text-gray-500 group-hover:text-blue-600 smooth-transition">
+                        <span className="animate-bounce-slow" style={{animationDelay: '0.2s'}}>👨‍🏫</span>
                         <span>{course.instructor.name}</span>
                       </div>
                     )}
@@ -205,14 +207,14 @@ export default function Home() {
                     <div className="flex justify-between items-center pt-4 border-t border-gray-200">
                       <div>
                         {course.price > 0 ? (
-                          <span className="text-3xl font-bold text-green-600">${course.price}</span>
+                          <span className="text-3xl font-bold text-green-600 animate-pulse">${course.price}</span>
                         ) : (
-                          <span className="text-2xl font-bold text-green-600">FREE</span>
+                          <span className="text-2xl font-bold text-green-600">FREE 🎉</span>
                         )}
                       </div>
                       <button
                         onClick={() => handleEnroll(course._id)}
-                        className={`px-6 py-2 rounded-lg font-semibold transition ${
+                        className={`px-6 py-2 rounded-lg font-semibold smooth-transition transform hover:scale-110 hover:shadow-lg ${
                           state.token
                             ? 'bg-blue-600 text-white hover:bg-blue-700'
                             : 'bg-indigo-600 text-white hover:bg-indigo-700'
